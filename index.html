@@ -4,15 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto HTML</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
-            font-family: 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            color: #333333;
+            font-family: 'Bebas Neue', cursive;
+            background: linear-gradient(135deg, #d31441 0%, #1a1a1a 100%);
+            color: #ffffff;
             min-height: 100vh;
-            line-height: 1.6;
+            line-height: 1.2;
+            letter-spacing: 1px;
         }
 
         .page-wrapper {
@@ -24,11 +25,12 @@
         header,
         main,
         footer {
-            background: #ffffff;
+            background: rgba(26, 26, 26, 0.9);
             border-radius: 12px;
             padding: 30px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             margin-bottom: 30px;
+            border: 1px solid rgba(211, 20, 65, 0.3);
         }
 
         header {
@@ -39,9 +41,10 @@
 
         header h1 {
             font-size: 2.5rem;
-            font-weight: 300;
-            color: #2c3e50;
+            font-weight: 400;
+            color: #f37a20;
             margin: 0;
+            letter-spacing: 5px;
         }
 
         section {
@@ -59,45 +62,63 @@
 
         h1 {
             font-size: 2.5rem;
-            font-weight: 300;
+            font-weight: 400;
         }
 
         h2 {
             font-size: 1.8rem;
             font-weight: 400;
-            color: #34495e;
+            color: #f37a20;
             margin-bottom: 20px;
         }
 
         h3 {
             font-size: 1.4rem;
-            font-weight: 500;
-            color: #2c3e50;
+            font-weight: 400;
+            color: #ffffff;
             margin-bottom: 15px;
         }
 
         h4 {
             font-size: 1.1rem;
             font-weight: 400;
-            color: #34495e;
+            color: #ffffff;
             margin: 10px 0;
         }
 
         .section-header-row {
             display: grid;
-            grid-template-columns: 250px minmax(250px, 1fr) 280px;
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
             align-items: start;
             margin-bottom: 30px;
         }
 
+        .portal-box {
+            background: #f37a20;
+            color: #1a1a1a;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 60px;
+            box-shadow: 0 0 20px rgba(243, 122, 32, 0.4);
+        }
+
+        .portal-box h2 {
+            font-size: 4rem;
+            margin: 0;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            color: #1a1a1a;
+        }
+
         .info-box,
         .news-box {
-            background: #f8f9fa;
-            border: 1px solid #e9ecef;
+            background: #222222;
+            border: 1px solid #d31441;
             border-radius: 12px;
             padding: 20px;
-            color: #333333;
+            color: #ffffff;
         }
 
         .info-box h3,
@@ -105,7 +126,7 @@
             margin-top: 0;
             margin-bottom: 15px;
             font-size: 1.2rem;
-            color: #495057;
+            color: #f37a20;
         }
 
         .info-item {
@@ -114,9 +135,9 @@
             gap: 12px;
             padding: 12px;
             border-radius: 8px;
-            background: #ffffff;
+            background: #1a1a1a;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #dee2e6;
+            border: 1px solid #444;
         }
 
         .info-item:hover {
@@ -131,15 +152,15 @@
             align-items: center;
             justify-content: center;
             border-radius: 50%;
-            background: #007bff;
+            background: #d31441;
             color: #ffffff;
             font-size: 14px;
         }
 
         .info-link {
-            color: #333333;
+            color: #ffffff;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 400;
         }
 
         .news-box img {
@@ -152,34 +173,13 @@
         }
 
         .news-box h4 a {
-            color: #007bff;
+            color: #f37a20;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 400;
         }
 
         .news-box h4 a:hover {
             text-decoration: underline;
-        }
-
-        .twitch-section {
-            text-align: center;
-        }
-
-        .twitch-player {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .twitch-player iframe {
-            max-width: 100%;
-            height: auto;
-        }
-
-        .twitch-player p {
-            margin: 10px 0;
-            font-size: 1rem;
-            color: #495057;
         }
 
         @keyframes pulse {
@@ -194,9 +194,9 @@
 
         label {
             display: block;
-            font-weight: 500;
+            font-weight: 400;
             margin-bottom: 8px;
-            color: #495057;
+            color: #f37a20;
         }
 
         input[type="text"],
@@ -204,11 +204,11 @@
             width: 100%;
             padding: 14px;
             border-radius: 8px;
-            border: 1px solid #ced4da;
-            background: #ffffff;
-            color: #333333;
+            border: 1px solid #444;
+            background: #1a1a1a;
+            color: #ffffff;
             box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Bebas Neue', cursive;
             font-size: 1rem;
             resize: vertical;
         }
@@ -216,8 +216,8 @@
         input[type="text"]:focus,
         textarea:focus {
             outline: none;
-            border-color: #007bff;
-            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+            border-color: #f37a20;
+            box-shadow: 0 0 0 2px rgba(243, 122, 32, 0.25);
         }
 
         input[type="submit"] {
@@ -225,15 +225,19 @@
             padding: 14px 28px;
             border: none;
             border-radius: 8px;
-            background: #007bff;
-            color: #ffffff;
-            font-weight: 500;
+            background: #f37a20;
+            color: #1a1a1a;
+            font-weight: 400;
             cursor: pointer;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
         }
 
         input[type="submit"]:hover {
-            background: #0056b3;
+            background: #d31441;
+            color: #ffffff;
         }
 
         .success-gif {
@@ -261,7 +265,7 @@
             text-align: center;
             padding: 20px 30px;
             font-size: 0.9rem;
-            color: #6c757d;
+            color: #888888;
         }
 
         @media (max-width: 900px) {
@@ -292,11 +296,6 @@
             h2 {
                 font-size: 1.5rem;
             }
-
-            .twitch-player iframe {
-                width: 100%;
-                height: 250px;
-            }
         }
     </style>
 </head>
@@ -306,35 +305,39 @@
             <h1>Primera web</h1>
         </header>
         <main>
-            <section>
+            <section class="intro-section">
                 <h2>Introducción</h2>
                 <p>No te fijes mucho.</p>
             </section>
             <section>
+                <div class="portal-box">
+                    <h2>PORTAL ABIERTO</h2>
+                </div>
                 <div class="section-header-row">
                     <div class="info-box">
                         <h3>Información</h3>
                         <a class="info-link" href="https://www.timeanddate.com/worldclock/argentina/buenos-aires" target="_blank">
                             <div class="info-item">
                                 <div class="info-icon">⏰</div>
-                                <div>Hora: 16:30</div>
+                                <div id="current-time-display">Hora: --:--</div>
                             </div>
                         </a>
                         <a class="info-link" href="https://www.google.com/maps/place/Buenos+Aires" target="_blank">
                             <div class="info-item">
                                 <div class="info-icon">📍</div>
-                                <div>Lugar: Buenos Aires</div>
+                                <div>Lugar: Rauch, provincia de Bs As</div>
                             </div>
                         </a>
-                        <a class="info-link" href="https://www.accuweather.com/en/ar/buenos-aires/7896/weather-forecast/7896" target="_blank">
+                        <a class="info-link" href="https://www.msn.com/es-ar/el-tiempo/pronostico/in-Rauch,Argentina?loc=eyJsIjoiUmF1Y2giLCJjIjoiQXJnZW50aW5hIiwiaSI6IkFSIiwiZyI6ImVzLWFyIiwieCI6Ii01OS4wODk3IiwieSI6Ii0zNi43NzUifQ%3D%3D&weadegreetype=C&ocid=winp2fp&cvid=69d113ce92f54ef0b596ccb39e144fec&content=TeaserRainAccNextDays_wxnwrnaccn" target="_blank">
                             <div class="info-item">
-                                <div class="info-icon">☀️</div>
-                                <div>Clima: Soleado</div>
+                                <div id="weather-icon" class="info-icon">☀️</div>
+                                <div id="weather-display">Clima: Cargando...</div>
                             </div>
                         </a>
-                    </div>
-                    <div>
-                        <h2>Breve presentación</h2>
+                        <div class="info-item" style="margin-top: 10px; display: block;">
+                            <div style="font-weight: 400; color: #f37a20; margin-bottom: 4px;">📅 Eventos Regionales:</div>
+                            <div id="events-display" style="font-size: 0.95rem; color: #bbbbbb;">Cargando eventos...</div>
+                        </div>
                     </div>
                     <div class="news-box">
                         <h3>Noticias</h3>
@@ -344,11 +347,31 @@
                 </div>
                 <p>para ser mi primera pagina he de decir que me siento conforme con ressultado, quizas podria agregar agunas cositas mas pero no se si se vea...bueno comentarios abajo porfis.</p>
             </section>
-            <section class="twitch-section">
-                <h2>Twitch Stream</h2>
-                <div class="twitch-player">
-                    <iframe src="https://player.twitch.tv/?channel=setefuelapava&parent=example.com" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620" style="display: block;"></iframe>
-                    <p style="margin-top: 10px; font-size: 0.9rem; color: #6c757d;">Si el reproductor no carga, es porque la página está en local. Al alojarla en línea, funcionará correctamente.</p>
+            <section>
+                <h2>Transmisión en Vivo</h2>
+                <div class="stream-player">
+                    <h3>Escucha en vivo</h3>
+                    <div id="twitch-embed" style="width: 100%; aspect-ratio: 16/9; background: #000; border-radius: 8px; overflow: hidden;">
+                        <iframe
+                            id="twitch-iframe"
+                            frameborder="0"
+                            allowfullscreen="true"
+                            allow="autoplay; fullscreen"
+                            scrolling="no"
+                            height="100%"
+                            width="100%">
+                        </iframe>
+                    </div>
+                    <div id="twitch-chat-embed" style="width: 100%; height: 400px; margin-top: 10px; background: #18181b; border-radius: 8px; overflow: hidden;">
+                        <iframe
+                            id="twitch-chat-iframe"
+                            src=""
+                            frameborder="0"
+                            scrolling="no"
+                            height="100%"
+                            width="100%">
+                        </iframe>
+                    </div>
                 </div>
             </section>
             <section>
@@ -372,12 +395,12 @@
             </section>
         </main>
         <footer>
-            <p>&copy; 2026 Proyecto HTML</p>
+            <p>&copy; <span id="year"></span> Proyecto HTML</p>
         </footer>
     </div>
     <iframe name="hidden_iframe" style="display:none;"></iframe>
     <script>
-        var newsData = [
+        const newsData = [
             {
                 title: 'El increíble despilfarro de 110.000 millones de dólares',
                 summary: 'En poco más de dos años de gobierno de Milei, con ingreso récord de divisas y apoyo del FMI y EE.UU., el saldo es una economía estancada, destrucción de empleos y familias asfixiadas por las deudas.',
@@ -399,20 +422,20 @@
         ];
 
         function renderNews() {
-            var container = document.getElementById('news-container');
+            const container = document.getElementById('news-container');
             container.innerHTML = '';
-            newsData.forEach(function(item) {
-                var h4 = document.createElement('h4');
+            newsData.forEach(item => {
+                const h4 = document.createElement('h4');
                 h4.style.margin = '10px 0';
                 h4.style.fontSize = '1.1rem';
-                h4.style.color = '#34495e';
-                var link = document.createElement('a');
+                h4.style.color = '#ffffff';
+                const link = document.createElement('a');
                 link.href = item.url;
                 link.target = '_blank';
                 link.textContent = item.title;
-                link.style.color = '#007bff';
+                link.style.color = '#f37a20';
                 link.style.textDecoration = 'none';
-                link.style.fontWeight = '500';
+                link.style.fontWeight = '400';
                 h4.appendChild(link);
                 container.appendChild(h4);
             });
@@ -420,14 +443,75 @@
 
         renderNews();
 
-        document.getElementById('contact-form').addEventListener('submit', function() {
-            var gif = document.getElementById('success-gif');
+        // Actualizar el año en el footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Configuración dinámica del reproductor de Twitch
+        (function() {
+            const twitchIframe = document.getElementById('twitch-iframe');
+            const twitchChatIframe = document.getElementById('twitch-chat-iframe');
+            
+            // Detecta automáticamente si estás en localhost, 127.0.0.1 o un dominio real
+            const host = window.location.hostname || "localhost";
+            
+            twitchIframe.src = `https://player.twitch.tv/?channel=setefuelapava&parent=${host}&autoplay=true`;
+            twitchChatIframe.src = `https://www.twitch.tv/embed/setefuelapava/chat?parent=${host}`;
+        })();
+
+        // Datos de clima simulados sincronizados por hora para Rauch
+        const weatherData = [
+            { start: 0, end: 6, text: "Clima: Despejado", icon: "🌙" },
+            { start: 6, end: 11, text: "Clima: Algo nublado", icon: "⛅" },
+            { start: 11, end: 19, text: "Clima: Soleado", icon: "☀️" },
+            { start: 19, end: 24, text: "Clima: Despejado", icon: "🌌" }
+        ];
+
+        // Datos de eventos dinámicos para Rauch
+        const regionalEvents = [
+            { start: 0, end: 8, text: "Noche tranquila en Rauch" },
+            { start: 8, end: 12, text: "Apertura del Palacio Municipal" },
+            { start: 12, end: 14, text: "Almuerzo en Parque Juan Silva" },
+            { start: 14, end: 18, text: "Visita guiada al Castillo de Egaña" },
+            { start: 18, end: 20, text: "Paseo por la Plaza de los Niños" },
+            { start: 20, end: 24, text: "Cena en el Club Social" }
+        ];
+
+        // Función para actualizar la hora
+        function updateTime() {
+            const now = new Date();
+            const h = now.getHours();
+            const hours = String(h).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('current-time-display').textContent = `Hora: ${hours}:${minutes}:${seconds}`;
+
+            // Actualizar eventos basados en la hora actual
+            const event = regionalEvents.find(e => h >= e.start && h < e.end) || { text: "Sin eventos programados" };
+            if (event) {
+                document.getElementById('events-display').textContent = event.text;
+            }
+
+            // Actualizar clima basado en la hora actual
+            const weather = weatherData.find(w => h >= w.start && h < w.end) || { text: "Clima: Desconocido", icon: "❓" };
+            if (weather) {
+                document.getElementById('weather-display').textContent = weather.text;
+                document.getElementById('weather-icon').textContent = weather.icon;
+            }
+        }
+
+        // Llama a la función una vez al cargar la página
+        updateTime();
+        // Actualiza la hora cada segundo
+        setInterval(updateTime, 1000);
+
+        document.getElementById('contact-form').addEventListener('submit', () => {
+            const gif = document.getElementById('success-gif');
+            gif.style.display = 'inline-block';
             gif.classList.add('show');
-            setTimeout(function() {
+            setTimeout(() => {
                 gif.classList.remove('show');
-                gif.style.display = 'none';
             }, 5000);
-            setTimeout(function() {
+            setTimeout(() => {
                 document.getElementById('contact-form').reset();
             }, 500);
         });
