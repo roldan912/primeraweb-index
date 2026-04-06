@@ -25,8 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // Manejar lectura de mensajes (GET)
 $messages = [];
 if (file_exists($file)) {
-    $lines = file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-    $updatedContent = "";
+    $lines = file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) ?: [];
+    $updatedContent = ""; 
     
     foreach ($lines as $line) {
         $parts = explode('|', trim($line));
@@ -43,7 +43,7 @@ if (file_exists($file)) {
             $updatedContent .= $line . "\n";
         }
     }
-    if (isset($updatedContent) && $updatedContent !== file_get_contents($file)) file_put_contents($file, $updatedContent, LOCK_EX); 
+    if ($updatedContent !== file_get_contents($file)) file_put_contents($file, $updatedContent, LOCK_EX); 
 }
 echo json_encode($messages);
 ?>

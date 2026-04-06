@@ -706,14 +706,24 @@
             formData.append('msg', msg);
 
             input.value = '';
-            const response = await fetch(
+            try {
+                await fetch(CHAT_API_URL, {
+                    method: 'POST',
+                    body: formData
+                });
+                loadMessages();
+            } catch (error) {
+                console.error("Error al enviar mensaje:", error);
+            }
         }
 
         async function loadMessages() {
             try {
-                c
-                r
-                console.log("Esperando servidor PHP...");
+                const response = await fetch(CHAT_API_URL);
+                const data = await response.json();
+                renderMessages(data);
+            } catch (error) {
+                console.error("Error al cargar mensajes:", error);
             }
         }
 
