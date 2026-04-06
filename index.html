@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto HTML</title>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <title>Voces de la Calle | Sonando Fuerte</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&family=Kanit:wght@300;600;900&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Kanit', sans-serif;
             background: radial-gradient(circle at center, #1a0b1a 0%, #050505 100%);
             color: #ffffff;
             min-height: 100vh;
@@ -35,24 +35,118 @@
         }
 
         header {
-            text-align: center;
-            padding: 40px 30px;
+            padding: 20px 30px;
             margin-bottom: 40px;
-            border-bottom: 3px solid #ff007f;
+            border-bottom: 1px solid rgba(255, 0, 127, 0.3);
         }
 
-        header h1 {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 3.5rem;
-            font-weight: 400;
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Rock Salt', cursive;
+            font-size: 1.2rem;
             color: #ff007f;
+            line-height: 1;
+            text-shadow: 0 0 10px rgba(255, 0, 127, 0.5);
+        }
+
+        .logo .dela {
+            font-size: 0.6rem;
+            display: block;
+            color: #ffffff;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
             margin: 0;
-            letter-spacing: 8px;
-            text-shadow: 0 0 15px rgba(255, 0, 127, 0.6);
+            padding: 0;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff007f;
         }
 
         section {
             margin-bottom: 40px;
+        }
+
+        #hero {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: url('imagen2.jpg') no-repeat center center/cover;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 0, 127, 0.3);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(15, 2, 15, 0.6);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+        }
+
+        .main-title {
+            font-weight: 900;
+            font-size: 4.5rem;
+            line-height: 0.9;
+            margin-bottom: 15px;
+            text-shadow: 0 0 30px #ff007f;
+            text-transform: uppercase;
+        }
+
+        .tagline {
+            font-weight: 300;
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+            color: #bc13fe;
+        }
+
+        .btn-live {
+            background: #ff007f;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-family: 'Kanit', sans-serif;
+            font-weight: 900;
+            letter-spacing: 2px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-live:hover {
+            background: #bc13fe;
+            box-shadow: 0 0 25px #bc13fe;
+            transform: scale(1.05);
         }
 
         h1,
@@ -64,27 +158,35 @@
             padding: 0;
         }
 
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 400;
-        }
-
         h2 {
-            font-size: 1.8rem;
-            font-weight: 400;
+            font-family: 'Rock Salt', cursive;
+            font-size: 1.6rem;
             color: #ff007f;
             margin-bottom: 20px;
         }
 
         h3 {
-            font-size: 1.4rem;
-            font-weight: 400;
+            font-size: 1.5rem;
+            font-weight: 600;
             color: #ffffff;
             margin-bottom: 15px;
         }
 
+        .highlight {
+            color: #ff007f;
+        }
+
+        .sub-h2 {
+            display: block;
+            font-size: 1rem;
+            color: #bc13fe;
+            margin-top: -15px;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
         h4 {
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 400;
             color: #ffffff;
             margin: 10px 0;
@@ -110,7 +212,7 @@
         }
 
         .portal-box h2 {
-            font-size: 4rem;
+            font-size: 3rem;
             margin: 0;
             letter-spacing: 8px;
             text-transform: uppercase;
@@ -125,6 +227,12 @@
             padding: 20px;
             color: #ffffff;
             backdrop-filter: blur(5px);
+        }
+
+        .pava-program {
+            border-left: 4px solid #ff007f;
+            padding-left: 20px;
+            margin-top: 20px;
         }
 
         .news-box {
@@ -177,6 +285,27 @@
             color: #ffffff;
             text-decoration: none;
             font-weight: 400;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .card {
+            background: rgba(30, 2, 30, 0.6);
+            border: 1px solid rgba(255, 0, 127, 0.2);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
         }
 
         #news-container {
@@ -235,7 +364,7 @@
             background: rgba(0, 0, 0, 0.6);
             color: #ffffff;
             box-sizing: border-box;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Kanit', sans-serif;
             font-size: 1rem;
             resize: vertical;
         }
@@ -257,7 +386,8 @@
             font-weight: 400;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-family: 'Bebas Neue', cursive;
+            font-family: 'Kanit', sans-serif;
+            font-weight: 900;
             font-size: 1.2rem;
             letter-spacing: 2px;
         }
@@ -292,7 +422,12 @@
             text-align: center;
             padding: 20px 30px;
             font-size: 0.9rem;
-            color: #ff007f;
+        }
+
+        .fava {
+            font-size: 0.8rem;
+            font-style: italic;
+            color: #bc13fe;
         }
 
         @media (max-width: 900px) {
@@ -321,7 +456,11 @@
             }
 
             h2 {
-                font-size: 1.5rem;
+                font-size: 1.2rem;
+            }
+
+            .main-title {
+                font-size: 2.5rem;
             }
         }
     </style>
@@ -329,13 +468,38 @@
 <body>
     <div class="page-wrapper">
         <header>
-            <h1>Primera web</h1>
+            <nav>
+                <div class="logo">VOCES <span class="dela">DE LA</span> CALLE</div>
+                <ul>
+                    <li><a href="#hero">Sintonía</a></li>
+                    <li><a href="#about">El Grito</a></li>
+                    <li><a href="#contacto">Hablános</a></li>
+                </ul>
+            </nav>
         </header>
+
+        <section id="hero">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="main-title">EL PULSO <br>DE LA CIUDAD</h1>
+                <p class="tagline">FM ONLINE // Arte, Filo y Realidad sin filtro. La noche es nuestra.</p>
+                <a href="#radio" class="btn-live">ESCUCHAR EN VIVO</a>
+            </div>
+        </section>
+
         <main>
-            <section class="intro-section">
-                <h2>Introducción</h2>
-                <p>No te fijes mucho.</p>
+            <section id="about">
+                <div class="about-header">
+                    <h2>LA FRECUENCIA URBANA</h2>
+                    <span class="sub-h2">Donde el asfalto toma la palabra.</span>
+                </div>
+                <div class="pava-program">
+                    <h3>📢 Programa Destacado: <span class="highlight">Se Te Fue La Pava</span></h3>
+                    <p>El punto justo donde la charla le gana al reloj. <br>
+                        ¿Te pasó? Estás meta charla, arreglando el mundo, y de golpe... <strong>¡el silbido!</strong> El agua se fue, se pasó de temperatura. Así somos. Una radio nacida de la distracción creativa, del entusiasmo que nos hace olvidar el tiempo. Porque cuando la charla es buena, el vapor no importa.</p>
+                </div>
             </section>
+
             <section>
                 <div class="portal-box">
                     <h2>PORTAL ABIERTO</h2>
@@ -404,7 +568,10 @@
             </section>
         </main>
         <footer>
-            <p>&copy; <span id="year"></span> Proyecto HTML</p>
+            <div class="footer-content">
+                <p>&copy; <span id="year"></span> VOCES DE LA CALLE. Seguí el ruido.</p>
+                <p class="fava">El agua se fue, la radio se quedó.</p>
+            </div>
         </footer>
     </div>
     <iframe name="hidden_iframe" style="display:none;"></iframe>
