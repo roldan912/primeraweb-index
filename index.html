@@ -118,8 +118,7 @@
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
         }
 
-        .info-box,
-        .news-box {
+        .info-box {
             background: rgba(30, 2, 30, 0.6);
             border: 1px solid rgba(255, 0, 127, 0.4);
             border-radius: 12px;
@@ -128,8 +127,18 @@
             backdrop-filter: blur(5px);
         }
 
-        .info-box h3,
-        .news-box h3 {
+        .news-box {
+            background: rgba(30, 2, 30, 0.6);
+            border: 1px solid rgba(255, 0, 127, 0.4);
+            border-radius: 12px;
+            color: #ffffff;
+            backdrop-filter: blur(5px);
+            height: 600px;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .info-box h3 {
             margin-top: 0;
             margin-bottom: 15px;
             font-size: 1.2rem;
@@ -170,13 +179,10 @@
             font-weight: 400;
         }
 
-        .news-box img {
+        .news-box iframe {
             width: 100%;
-            height: auto;
-            max-height: 80px;
-            object-fit: contain;
-            margin-bottom: 15px;
-            border-radius: 8px;
+            height: 100%;
+            border: none;
         }
 
         .news-box h4 a {
@@ -347,7 +353,6 @@
                         </div>
                     </div>
                     <div class="news-box">
-                        <h3>Noticias</h3>
                         <iframe 
                             src="https://www.eldestapeweb.com/" 
                             title="El Destape en vivo"
