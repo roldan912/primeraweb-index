@@ -220,30 +220,19 @@
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
         }
 
-        .info-box {
-            background: rgba(30, 2, 30, 0.6);
-            border: 1px solid rgba(255, 0, 127, 0.4);
-            border-radius: 12px;
-            padding: 20px;
-            color: #ffffff;
-            backdrop-filter: blur(5px);
-        }
-
         .pava-program {
             border-left: 4px solid #ff007f;
             padding-left: 20px;
             margin-top: 20px;
         }
 
-        .news-box {
+        .info-box {
             background: rgba(30, 2, 30, 0.6);
             border: 1px solid rgba(255, 0, 127, 0.4);
             border-radius: 12px;
+            padding: 30px;
             color: #ffffff;
             backdrop-filter: blur(5px);
-            height: 600px;
-            overflow-y: auto;
-            padding: 20px;
         }
 
         .info-box h3 {
@@ -251,6 +240,31 @@
             margin-bottom: 15px;
             font-size: 1.2rem;
             color: #ff007f;
+        }
+
+        .manifesto-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #e0e0e0;
+        }
+
+        .schedule-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 15px;
+        }
+
+        .schedule-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 0, 127, 0.1);
+        }
+
+        .schedule-time {
+            color: #ff007f;
+            font-weight: 900;
+            min-width: 80px;
         }
 
         .info-item {
@@ -306,41 +320,6 @@
         .card-icon {
             font-size: 2.5rem;
             margin-bottom: 15px;
-        }
-
-        #news-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .news-item {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .news-item img {
-            width: 100%;
-            aspect-ratio: 16/9;
-            object-fit: cover;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 0, 127, 0.2);
-        }
-
-        .news-box h4 a {
-            color: #ff007f;
-            text-decoration: none;
-            font-weight: 400;
-        }
-
-        .news-box h4 a:hover {
-            text-decoration: underline;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
         }
 
         form {
@@ -501,44 +480,35 @@
             </section>
 
             <section>
-                <div class="portal-box">
-                    <h2>PORTAL ABIERTO</h2>
-                </div>
                 <div class="section-header-row">
                     <div class="info-box">
-                        <h3>Información</h3>
-                        <a class="info-link" href="https://www.timeanddate.com/worldclock/argentina/buenos-aires" target="_blank">
-                            <div class="info-item">
-                                <div class="info-icon">⏰</div>
-                                <div id="current-time-display">Hora: --:--</div>
+                        <h3>Nuestra Esencia</h3>
+                        <p class="manifesto-text">
+                            Nacimos en el margen, crecemos en el ruido. <span class="highlight">Voces de la Calle</span> no pide permiso, pide volumen. Somos la interferencia necesaria en un mundo de silencio programado. Desde Rauch al mundo, transmitimos la verdad del asfalto y el brillo del neón.
+                        </p>
+                    </div>
+                    <div class="info-box">
+                        <h3>Grilla del Ruido</h3>
+                        <div class="schedule-list">
+                            <div class="schedule-item">
+                                <span class="schedule-time">10:00</span>
+                                <span class="schedule-desc">Mañana de Niebla</span>
                             </div>
-                        </a>
-                        <a class="info-link" href="https://www.google.com/maps/place/Buenos+Aires" target="_blank">
-                            <div class="info-item">
-                                <div class="info-icon">📍</div>
-                                <div>Lugar: Rauch, provincia de Bs As</div>
+                            <div class="schedule-item">
+                                <span class="schedule-time">14:00</span>
+                                <span class="schedule-desc">Se Te Fue La Pava (Central)</span>
                             </div>
-                        </a>
-                        <a class="info-link" href="https://www.msn.com/es-ar/el-tiempo/pronostico/in-Rauch,Argentina?loc=eyJsIjoiUmF1Y2giLCJjIjoiQXJnZW50aW5hIiwiaSI6IkFSIiwiZyI6ImVzLWFyIiwieCI6Ii01OS4wODk3IiwieSI6Ii0zNi43NzUifQ%3D%3D&weadegreetype=C&ocid=winp2fp&cvid=69d113ce92f54ef0b596ccb39e144fec&content=TeaserRainAccNextDays_wxnwrnaccn" target="_blank">
-                            <div class="info-item">
-                                <div id="weather-icon" class="info-icon">☀️</div>
-                                <div id="weather-display">Clima: Cargando...</div>
+                            <div class="schedule-item">
+                                <span class="schedule-time">20:00</span>
+                                <span class="schedule-desc">El Pulso Nocturno</span>
                             </div>
-                        </a>
-                        <div class="info-item" style="margin-top: 10px; display: block;">
-                            <div style="font-weight: 400; color: #ff007f; margin-bottom: 4px;">📅 Eventos Regionales:</div>
-                            <div id="events-display" style="font-size: 0.95rem; color: #bbbbbb;">Cargando eventos...</div>
+                            <div class="schedule-item" style="border: none;">
+                                <span class="schedule-time">00:00</span>
+                                <span class="schedule-desc">Frecuencia Alienígena</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="news-box">
-                        <h3 style="display: flex; justify-content: space-between; align-items: center;">
-                            Noticias en Vivo 
-                            <a href="https://www.eldestapeweb.com/" target="_blank" style="font-size: 0.7rem; color: #bc13fe; text-decoration: none;">Abrir sitio completo ↗</a>
-                        </h3>
-                        <div id="news-container"></div>
-                    </div>
                 </div>
-                <p>para ser mi primera pagina he de decir que me siento conforme con ressultado, quizas podria agregar agunas cositas mas pero no se si se vea...bueno comentarios abajo porfis.</p>
             </section>
             <section>
                 <h2>Se Te Fue La Pava -FM</h2>
@@ -576,122 +546,8 @@
     </div>
     <iframe name="hidden_iframe" style="display:none;"></iframe>
     <script>
-        const newsData = [
-            {
-                title: 'Kicillof apuntó contra Milei por el recorte de fondos a las provincias',
-                url: 'https://www.eldestapeweb.com/politica/axel-kicillof/kicillof-contra-milei-por-fondos-provincias',
-                thumbnail: 'https://cdn.eldestapeweb.com/eldestape/042024/1713876543210.webp?cw=800&ch=450&extw=jpg'
-            },
-            {
-                title: 'Tarifas de luz y gas: Los nuevos cuadros tarifarios para el invierno',
-                url: 'https://www.eldestapeweb.com/economia/tarifas/aumentos-tarifas-energia-invierno',
-                thumbnail: 'https://cdn.eldestapeweb.com/eldestape/042024/1713876543211.webp?cw=800&ch=450&extw=jpg'
-            },
-            {
-                title: 'Conflicto universitario: Masiva movilización en defensa de la educación',
-                url: 'https://www.eldestapeweb.com/sociedad/universidades/marcha-universitaria-presupuesto-educativo',
-                thumbnail: 'https://cdn.eldestapeweb.com/eldestape/042024/1713876543212.webp?cw=800&ch=450&extw=jpg'
-            },
-            {
-                title: 'Cultura en alerta: El reclamo de los artistas por el financiamiento',
-                url: 'https://www.eldestapeweb.com/cultura/cine/artistas-reclamo-incaa-cultura',
-                thumbnail: 'https://cdn.eldestapeweb.com/eldestape/042024/1713876543213.webp?cw=800&ch=450&extw=jpg'
-            },
-            {
-                title: 'Boca vs River: Todo lo que dejó el superclásico del fútbol argentino',
-                url: 'https://www.eldestapeweb.com/deportes/futbol/superclasico-boca-river-analisis',
-                thumbnail: 'https://cdn.eldestapeweb.com/eldestape/042024/1713876543214.webp?cw=800&ch=450&extw=jpg'
-            },
-            {
-                title: 'Mercado laboral: La preocupación por la caída del consumo interno',
-                url: 'https://www.eldestapeweb.com/economia/consumo/caida-ventas-mercado-interno',
-                thumbnail: 'https://cdn.eldestapeweb.com/eldestape/042024/1713876543215.webp?cw=800&ch=450&extw=jpg'
-            }
-        ];
-
-        function renderNews() {
-            const container = document.getElementById('news-container');
-            if (!container) return;
-            container.innerHTML = '';
-            newsData.forEach(item => {
-                const itemDiv = document.createElement('div');
-                itemDiv.className = 'news-item';
-                
-                const img = document.createElement('img');
-                // Si la imagen da error, cargamos una de respaldo y ajustamos el estilo
-                img.onerror = () => {
-                    img.src = 'https://www.eldestapeweb.com/img/estructura/logo.png';
-                    img.style.objectFit = 'contain';
-                    img.style.background = 'rgba(0,0,0,0.5)';
-                };
-                img.src = item.thumbnail;
-                img.alt = item.title;
-                
-                const h4 = document.createElement('h4');
-                const link = document.createElement('a');
-                link.href = item.url;
-                link.target = '_blank';
-                link.textContent = item.title;
-                link.style.color = '#ff007f';
-                link.style.textDecoration = 'none';
-                
-                h4.appendChild(link);
-                itemDiv.appendChild(img);
-                itemDiv.appendChild(h4);
-                container.appendChild(itemDiv);
-            });
-        }
-
-        renderNews();
-
         // Actualizar el año en el footer
         document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Datos de clima simulados sincronizados por hora para Rauch
-        const weatherData = [
-            { start: 0, end: 6, text: "Clima: Despejado", icon: "🌙" },
-            { start: 6, end: 11, text: "Clima: Algo nublado", icon: "⛅" },
-            { start: 11, end: 19, text: "Clima: Soleado", icon: "☀️" },
-            { start: 19, end: 24, text: "Clima: Despejado", icon: "🌌" }
-        ];
-
-        // Datos de eventos dinámicos para Rauch
-        const regionalEvents = [
-            { start: 0, end: 8, text: "Noche tranquila en Rauch" },
-            { start: 8, end: 12, text: "Apertura del Palacio Municipal" },
-            { start: 12, end: 14, text: "Almuerzo en Parque Juan Silva" },
-            { start: 14, end: 18, text: "Visita guiada al Castillo de Egaña" },
-            { start: 18, end: 20, text: "Paseo por la Plaza de los Niños" },
-            { start: 20, end: 24, text: "Cena en el Club Social" }
-        ];
-
-        // Función para actualizar la hora
-        function updateTime() {
-            const now = new Date();
-            const h = now.getHours();
-            const hours = String(h).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const seconds = String(now.getSeconds()).padStart(2, '0');
-            document.getElementById('current-time-display').textContent = `Hora: ${hours}:${minutes}:${seconds}`;
-
-            // Actualizar eventos basados en la hora actual
-            const event = regionalEvents.find(e => h >= e.start && h < e.end);
-            if (event) {
-                document.getElementById('events-display').textContent = event.text;
-            } else {
-                document.getElementById('events-display').textContent = "Sin eventos programados";
-            }
-
-            // Actualizar clima basado en la hora actual
-            const weather = weatherData.find(w => h >= w.start && h < w.end) || { text: "Clima: Estable", icon: "☁️" };
-            document.getElementById('weather-display').textContent = weather.text;
-            document.getElementById('weather-icon').textContent = weather.icon;
-        }
-
-        // Llama a la función una vez al cargar la página
-        updateTime();
-        // Actualiza la hora cada segundo
-        setInterval(updateTime, 1000);
 
         document.getElementById('contact-form').addEventListener('submit', () => {
             const gif = document.getElementById('success-gif');
