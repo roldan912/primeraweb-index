@@ -378,65 +378,34 @@
             margin-bottom: 15px;
         }
 
-        /* Estilos del Chat Integrado */
-        .chat-integrated {
-            height: 500px;
+        /* Estilos de la Box Social/Publicitaria */
+        .social-box {
+            height: 400px;
             display: flex;
             flex-direction: column;
-            position: relative;
-            border: 1px solid rgba(255, 0, 127, 0.4) !important;
-            box-shadow: 0 0 20px rgba(255, 0, 127, 0.15) !important;
-        }
-
-        .chat-body-integrated {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-            position: relative;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 8px;
-            margin-top: 10px;
-        }
-
-        #chatMessages {
-            flex-grow: 1;
-            overflow-y: auto;
-            padding: 10px;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            word-wrap: break-word;
-            scrollbar-width: thin;
-            scrollbar-color: var(--primary-color) transparent;
-        }
-
-        #chatInputArea {
-            display: flex;
-            border-top: 1px solid #333;
-            background: #000;
-        }
-
-        #msgInput {
-            flex-grow: 1;
-            background: transparent;
-            border: none;
-            color: #fff;
-            padding: 10px;
-            outline: none;
-        }
-
-        #nickOverlay {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(15, 2, 15, 0.95);
-            z-index: 10;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
-            gap: 10px;
+            align-items: center;
+            text-align: center;
+            gap: 20px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            width: 100%;
+            padding: 10px;
             border-radius: 8px;
+            background: rgba(255, 0, 127, 0.1);
+        }
+
+        .social-link:hover {
+            background: rgba(255, 0, 127, 0.3);
+            transform: scale(1.05);
         }
 
         .status-dot {
@@ -654,21 +623,19 @@
                             <a href="https://www.caster.fm">Shoutcast Hosting</a> <a href="https://www.caster.fm">Stream Hosting</a> <a href="https://www.caster.fm">Radio Server Hosting</a>
                         </div>
                     </div>
-                    <div class="info-box chat-integrated">
-                        <h3>CHAT EN VIVO <span class="status-dot"></span></h3>
-                        <div class="chat-body-integrated" id="chatBody">
-                            <div id="nickOverlay">
-                                <p style="color: var(--primary-color); font-weight: 900;">¿CUÁL ES TU NICK?</p>
-                                <input type="text" id="nickInput" style="width: 80%;" placeholder="Tu nombre callejero...">
-                                <button onclick="setNick()" class="btn-live" style="padding: 5px 20px; font-size: 0.8rem;">ENTRAR</button>
-                            </div>
-                            <div id="chatMessages"></div>
-                            <div id="chatInputArea">
-                                <input type="text" id="msgInput" placeholder="Escribí algo..." onkeypress="if(event.key==='Enter') sendMsg()">
-                                <button onclick="sendMsg()" style="background: var(--primary-color); border: none; padding: 0 15px; cursor: pointer;">
-                                    <span style="font-weight: 900; color: #000;">></span>
-                                </button>
-                            </div>
+                    <div class="info-box social-box">
+                        <h3>NUESTRAS REDES</h3>
+                        <div style="width: 100%;">
+                            <a href="https://www.instagram.com/depiesymanos.teatro" target="_blank" class="social-link">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram" style="width: 30px;">
+                                <span>@depiesymanos.teatro</span>
+                            </a>
+                        </div>
+                        <div style="width: 100%;">
+                            <a href="https://www.instagram.com/profe.maximina" target="_blank" class="social-link">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram" style="width: 30px;">
+                                <span>@profe.maximina</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -702,76 +669,6 @@
     <script>
         // Actualizar el año en el footer
         document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Lógica del Chat Independiente
-        let userNick = null;
-        let userColor = null;
-        
-        // Reemplaza esta URL con la que te asigne tu hosting PHP (ej: https://tu-radio.000webhostapp.com/chat.php)
-        const CHAT_API_URL = 'chat.php'; 
-
-        function setNick() {
-            const input = document.getElementById('nickInput');
-            if (input.value.trim() !== "") {
-                userNick = input.value.trim();
-                // Colores vibrantes estilo Cyberpunk
-                const colors = ['#00fff9', '#ff00c1', '#bc13fe', '#00ff00', '#ffff00', '#ff8c00'];
-                userColor = colors[Math.floor(Math.random() * colors.length)];
-                
-                document.getElementById('nickOverlay').style.display = 'none';
-                loadMessages();
-            }
-        }
-
-        async function sendMsg() {
-            const input = document.getElementById('msgInput');
-            const msg = input.value.trim();
-            if (!msg || !userNick) return;
-
-            const formData = new FormData();
-            formData.append('nick', userNick);
-            formData.append('color', userColor);
-            formData.append('msg', msg);
-
-            input.value = '';
-            try {
-                await fetch(CHAT_API_URL, {
-                    method: 'POST',
-                    body: formData
-                });
-                loadMessages();
-            } catch (error) {
-                console.error("Error al enviar mensaje:", error);
-            }
-        }
-
-        async function loadMessages() {
-            try {
-                const response = await fetch(CHAT_API_URL);
-                const data = await response.json();
-                renderMessages(data);
-            } catch (error) {
-                console.error("Error al cargar mensajes:", error);
-            }
-        }
-
-        function renderMessages(msgs) {
-            const container = document.getElementById('chatMessages');
-            if (!Array.isArray(msgs)) return;
-            
-            container.innerHTML = msgs.map(m => `
-                <div style="margin-bottom: 4px; line-height: 1.4;">
-                    <span style="color: ${m.color}; font-weight: 900; text-transform: uppercase; font-size: 0.8rem;">${m.nick}:</span>
-                    <span style="color: #eee;">${m.msg}</span>
-                </div>
-            `).join('');
-            container.scrollTop = container.scrollHeight;
-        }
-
-        // Recargar mensajes cada 3 segundos
-        setInterval(() => {
-            if (userNick) loadMessages();
-        }, 3000);
 
         document.getElementById('contact-form').addEventListener('submit', () => {
             const gif = document.getElementById('success-gif');
