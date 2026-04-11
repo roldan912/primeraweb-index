@@ -21,7 +21,12 @@ const StatsApp = {
     loadData: function() {
         const savedData = localStorage.getItem('candidates_data');
         if (savedData) {
-            this.candidates = JSON.parse(savedData);
+            try {
+                this.candidates = JSON.parse(savedData);
+            } catch (e) {
+                console.error("Error cargando datos, reiniciando...");
+                localStorage.removeItem('candidates_data');
+            }
         }
     },
 
@@ -70,7 +75,7 @@ const StatsApp = {
                         <span class="perc-tag" style="color:#ccff00; top: -15px;">${c.neg}%</span>
                     </div>
                 </div>
-                <span class="name-tag">${c.name.replace(' ', '<br>')}</span>
+                <span class="name-tag">${c.name.replace(/\s+/g, '<br>')}</span>
             </div>
         `).join('');
     }
