@@ -11,7 +11,13 @@ const WeatherApp = {
 
     injectWidgetEngine: function() {
         const scriptId = 'weatherwidget-io-js';
-        if (document.getElementById(scriptId)) return;
+        const existingScript = document.getElementById(scriptId);
+        
+        if (existingScript) {
+            // Si el script ya existe, forzamos el re-procesamiento del widget
+            if (typeof __weatherwidget_init === 'function') __weatherwidget_init();
+            return;
+        }
 
         const script = document.createElement('script');
         script.id = scriptId;
