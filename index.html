@@ -382,34 +382,33 @@
             margin-bottom: 15px;
         }
 
-        /* Estilos de la Box Social/Publicitaria */
-        .social-box {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            text-align: center;
-            gap: 20px;
-            min-height: 100%;
+        /* Estilos de la Box de Imágenes Dinámicas */
+        .image-box {
+            padding: 20px !important;
+            position: relative;
+            overflow: hidden;
+            min-height: 350px;
+            justify-content: space-between;
         }
 
-        .social-link {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            text-decoration: none;
-            color: white;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
+        .dynamic-img-wrapper {
             width: 100%;
-            padding: 10px;
+            flex-grow: 1;
             border-radius: 8px;
-            background: rgba(255, 0, 127, 0.1);
+            overflow: hidden;
+            border: 1px solid rgba(255, 0, 127, 0.3);
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .social-link:hover {
-            background: rgba(255, 0, 127, 0.3);
-            transform: scale(1.05);
+        #random-art-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
         }
 
         .social-icon-neon {
@@ -569,6 +568,13 @@
                 <ul>
                     <li><a href="#hero">Sintonía</a></li>
                     <li><a href="#about">El Grito</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Redes</a>
+                        <div class="dropdown-content">
+                            <a href="https://www.instagram.com/depiesymanos.teatro" target="_blank">Instagram: @depiesymanos.teatro</a>
+                            <a href="https://www.instagram.com/profe.maximina" target="_blank">Instagram: @profe.maximina</a>
+                        </div>
+                    </li>
                     <li><a href="#contacto">Hablanos</a></li>
                 </ul>
             </nav>
@@ -644,27 +650,10 @@
                             <a href="https://www.caster.fm">Shoutcast Hosting</a> <a href="https://www.caster.fm">Stream Hosting</a> <a href="https://www.caster.fm">Radio Server Hosting</a>
                         </div>
                     </div>
-                    <div class="info-box social-box">
-                        <h3>NUESTRAS REDES</h3>
-                        <div style="width: 100%;">
-                            <a href="https://www.instagram.com/depiesymanos.teatro" target="_blank" class="social-link">
-                                <svg class="social-icon-neon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                                </svg>
-                                <span>@depiesymanos.teatro</span>
-                            </a>
-                        </div>
-                        <div style="width: 100%;">
-                            <a href="https://www.instagram.com/profe.maximina" target="_blank" class="social-link">
-                                <svg class="social-icon-neon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                                </svg>
-                                <span>@profe.maximina</span>
-                            </a>
+                    <div class="info-box image-box">
+                        <h3 id="image-caption">Cargando Arte...</h3>
+                        <div class="dynamic-img-wrapper">
+                            <img id="random-art-image" src="" alt="Arte Callejero">
                         </div>
                     </div>
                 </div>
@@ -698,6 +687,33 @@
     <script>
         // Actualizar el año en el footer
         document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Lógica de imágenes aleatorias
+        const artKeywords = [
+            { term: "urban,art", label: "Arte Urbano" },
+            { term: "murals,latin,america", label: "Murales de Latinoamérica" },
+            { term: "concert,latin,artist", label: "Ritmo Latinoamericano" }
+        ];
+
+        function cycleImages() {
+            const img = document.getElementById('random-art-image');
+            const caption = document.getElementById('image-caption');
+            const choice = artKeywords[Math.floor(Math.random() * artKeywords.length)];
+            
+            // Usamos un servicio de imágenes aleatorias por palabras clave
+            const timestamp = new Date().getTime();
+            const newUrl = `https://loremflickr.com/600/400/${choice.term}?random=${timestamp}`;
+            
+            img.style.opacity = '0';
+            setTimeout(() => {
+                img.src = newUrl;
+                caption.textContent = choice.label;
+                img.onload = () => { img.style.opacity = '1'; };
+            }, 800);
+        }
+
+        cycleImages();
+        setInterval(cycleImages, 12000); // Cambia cada 12 segundos
 
         // Vincular botón "Escuchar en vivo"
         document.getElementById('btn-play-main').addEventListener('click', function(e) {
