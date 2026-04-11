@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Voces de la Calle | Sonando Fuerte</title>
     <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&family=Kanit:wght@100;300;600;900&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" href="imagen2.jpg">
     <style>
         :root {
             --primary-color: #ff007f;
@@ -98,7 +99,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: url('imagen2.jpg') no-repeat center center/cover;
+            background: #1a0b1a url('imagen2.jpg') no-repeat center center/cover;
             border-radius: 12px;
             margin-bottom: 40px;
             overflow: hidden;
@@ -792,7 +793,7 @@
                         <textarea id="comentario" name="entry.784681041" rows="5" placeholder="Escribe tu comentario" required></textarea>
                     </div>
                     <input type="submit" value="Enviar">
-                    <img id="success-gif" class="success-gif" src="particula1.gif" alt="Éxito">
+                    <img id="success-gif" class="success-gif" src="particula1.gif" alt="Éxito" loading="lazy" decoding="async">
                 </form>
             </section>
         </main>
