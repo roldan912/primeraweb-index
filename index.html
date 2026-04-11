@@ -725,7 +725,6 @@
                             <div id="candidates-display"></div>
                             <div class="stats-legend">
                                 <span><i style="color:var(--primary-color)">●</i> Positiva</span>
-                                <span><i style="color:#333">●</i> Negativa</span>
                                 <span><i style="color:#ccff00">●</i> Negativa</span>
                             </div>
                         </div>
@@ -781,7 +780,6 @@
                 </div>
                 <script src="https://cdn.cloud.caster.fm/widgets/embed.js"></script>
             </section>
-            <script src="stats-app.js"></script>
             <section>
                 <h2>Contacto</h2>
                 <form id="contact-form" action="https://docs.google.com/forms/d/e/1FAIpQLSf_NeTghg_UX7PvsTeJIMGp5yQ7dykIFTfcJ8n47-BQxpIelQ/formResponse" method="post" target="hidden_iframe">
@@ -843,7 +841,6 @@
 
         document.getElementById('contact-form').addEventListener('submit', () => {
             const gif = document.getElementById('success-gif');
-            gif.style.display = 'inline-block';
             gif.classList.add('show');
             setTimeout(() => {
                 gif.classList.remove('show');

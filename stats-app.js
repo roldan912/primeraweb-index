@@ -13,16 +13,33 @@ const StatsApp = {
 
     init: function() {
         console.log("Stats System: Sincronizando datos de opinión pública...");
+        this.loadData();
         this.render();
         this.checkDailyUpdate();
     },
 
+    loadData: function() {
+        const savedData = localStorage.getItem('candidates_data');
+        if (savedData) {
+            this.candidates = JSON.parse(savedData);
+        }
+    },
+
+    saveData: function() {
+        localStorage.setItem('candidates_data', JSON.stringify(this.candidates));
+    },
+
     checkDailyUpdate: function() {
         const lastUpdate = localStorage.getItem('last_stats_update');
-        const now = new Date().getTime();
+        const now = Date.now();
         
-        // Si pasaron más de 24hs (86400000 ms), simulamos refresco de datos
-        if (!lastUpdate || (now - lastUpdate > 86400000)) {
+        if (!lastUpdate) {
+            localStorage.setItem('last_stats_update', now);
+            this.saveData();
+            return;
+        }
+
+        if (now - parseInt(lastUpdate) > 86400000) {
             localStorage.setItem('last_stats_update', now);
             this.applySmallVariation();
         }
@@ -35,6 +52,7 @@ const StatsApp = {
             c.pos = Math.max(5, Math.min(95, c.pos + varPos));
             c.neg = Math.max(5, Math.min(95, c.neg + varNeg));
         });
+        this.saveData();
         this.render();
     },
 
