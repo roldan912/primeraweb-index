@@ -326,36 +326,47 @@
 
         .retro-clock {
             font-family: 'Kanit', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 900;
+            font-size: 3.2rem;
+            font-weight: 300; /* Tipografía delgada como pediste */
             color: var(--primary-color);
             text-align: center;
-            text-shadow: 0 0 10px var(--primary-color), 0 0 20px #bc13fe;
-            letter-spacing: 4px;
+            text-shadow: 0 0 15px rgba(255, 0, 127, 0.7);
+            letter-spacing: 6px;
+            margin: 10px 0;
         }
 
         /* Efecto atmosférico para la box de clima */
         .weather-box-dynamic {
             position: relative;
             overflow: hidden;
-            min-height: 150px;
-            background: linear-gradient(to bottom, #0f020f, #050505) !important;
+            min-height: 180px;
+            background: #000000 !important;
             filter: drop-shadow(0 0 5px var(--primary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .weather-box-dynamic::before {
             content: '';
             position: absolute;
-            top: 0; left: -100%;
-            width: 300%; height: 100%;
-            background: radial-gradient(circle, rgba(255, 0, 127, 0.08) 0%, transparent 70%);
-            animation: atmospheric-drift 15s linear infinite;
+            top: -100%; left: -100%;
+            width: 300%; height: 300%;
+            /* Simulación de lluvia neón */
+            background-image: linear-gradient(135deg, 
+                transparent 0%, 
+                transparent 48%, 
+                rgba(255, 0, 127, 0.1) 50%, 
+                transparent 52%, 
+                transparent 100%);
+            background-size: 60px 60px;
+            animation: atmospheric-drift 3s linear infinite;
             pointer-events: none;
         }
 
         @keyframes atmospheric-drift {
-            from { transform: translateX(0); }
-            to { transform: translateX(30%); }
+            from { transform: translate(0, 0); }
+            to { transform: translate(60px, 60px); }
         }
 
         .schedule-item {
@@ -633,26 +644,24 @@
                     </div>
                     <div class="side-container">
                         <div class="info-box mini-box">
-                            <p style="font-size: 0.6rem; color: #888; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 2px; text-align: center;">Programación Especial</p>
                             <div class="schedule-list" style="margin-top: 0;">
-                                <div class="schedule-item" style="padding: 4px 0; font-size: 0.9rem;">
+                                <div class="schedule-item" style="padding: 5px 0; font-size: 0.85rem;">
                                     <span class="schedule-time">20:00</span>
                                     <span class="schedule-desc">La Crotera-irl musica</span>
                                 </div>
-                                <div class="schedule-item" style="border: none; padding: 4px 0; font-size: 0.9rem;">
+                                <div class="schedule-item" style="border: none; padding: 5px 0; font-size: 0.85rem;">
                                     <span class="schedule-time">23:00</span>
                                     <span class="schedule-desc">Hablemos sin Gritar</span>
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="info-box mini-box">
                             <div id="digital-clock" class="retro-clock">00:00:00</div>
                         </div>
+
                         <div class="info-box mini-box weather-box-dynamic">
                             <a class="weatherwidget-io" href="https://forecast7.com/es/n36s14/rauch/" data-label_1="RAUCH" data-label_2="CLIMA" data-font="Kanit" data-icons="Climacons Animated" data-days="7" data-theme="pure" data-basecolor="rgba(0,0,0,0)" data-textcolor="#ffffff" data-highcolor="#ff007f" data-lowcolor="#bc13fe" style="width: 100%;">RAUCH CLIMA</a>
-                            <script>
-                            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
-                            </script>
                         </div>
                     </div>
                 </div>
@@ -706,6 +715,7 @@
                 </div>
                 <script src="https://cdn.cloud.caster.fm/widgets/embed.js"></script>
             </section>
+            <script src="weather-app.js"></script>
             <section>
                 <h2>Contacto</h2>
                 <form id="contact-form" action="https://docs.google.com/forms/d/e/1FAIpQLSf_NeTghg_UX7PvsTeJIMGp5yQ7dykIFTfcJ8n47-BQxpIelQ/formResponse" method="post" target="hidden_iframe">
