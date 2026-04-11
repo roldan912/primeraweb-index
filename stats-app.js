@@ -3,12 +3,12 @@
  * Maneja la visualización de datos de candidatos
  */
 const StatsApp = {
-    // Datos de ejemplo basados en opinión pública actual
+    version: "2026-04-A", // Cambiamos la versión para forzar la actualización de datos
     candidates: [
-        { name: "Axel Kicillof", pos: 38, neg: 54 },
-        { name: "Cristina Kirchner", pos: 31, neg: 67 },
         { name: "Javier Milei", pos: 33, neg: 65 },
-        { name: "Patricia Bullrich", pos: 42.7, neg: 50.3 }
+        { name: "Patricia Bullrich", pos: 42.7, neg: 50.3 },
+        { name: "Axel Kicillof", pos: 38, neg: 54 },
+        { name: "Cristina Kirchner", pos: 31, neg: 67 }
     ],
 
     init: function() {
@@ -23,13 +23,13 @@ const StatsApp = {
         if (savedData) {
             try {
                 const parsed = JSON.parse(savedData);
-                
-                // Sincronización: Si el número de candidatos o los nombres cambiaron en el código,
-                // reseteamos el almacenamiento para mostrar los nuevos datos hardcodeados.
+                const savedVersion = localStorage.getItem('stats_version');
+
                 const storedNames = parsed.map(c => c.name).join(',');
                 const currentNames = this.candidates.map(c => c.name).join(',');
 
-                if (storedNames === currentNames) {
+                // Forzamos actualización si la versión es distinta o los nombres cambiaron
+                if (storedNames === currentNames && savedVersion === this.version) {
                     this.candidates = parsed;
                 }
             } catch (e) {
@@ -41,6 +41,7 @@ const StatsApp = {
 
     saveData: function() {
         localStorage.setItem('candidates_data', JSON.stringify(this.candidates));
+        localStorage.setItem('stats_version', this.version);
     },
 
     checkDailyUpdate: function() {
